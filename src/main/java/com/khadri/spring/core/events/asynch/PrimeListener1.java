@@ -1,8 +1,8 @@
-package com.khadri.spring.core.events.declarative;
+package com.khadri.spring.core.events.asynch;
 
 
-import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,10 +13,10 @@ public class PrimeListener1 {
     }
 
     @EventListener
+    @Async
     public void eventListener(LootEvent event) throws InterruptedException {
 //        event = null;
-
-        Thread.sleep(60000);
+        Thread.sleep(6000);
         this.grabOffer(event.getLootOffer(),event.getOfferPrice());
     }
 }
